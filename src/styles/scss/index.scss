@@ -46,18 +46,78 @@ p {
     justify-content: space-between;
     align-items: center;
     padding: 40px 32px;
+    position: relative;
+
+    .nav--logo {
+        z-index: 2;
+    }
 
     .nav--toggle {
         background: transparent;
         padding: 0;
+        z-index: 2;
     }
 
     .nav--links {
         position: absolute;
+        z-index: 2;
+        left: 0;
+        top: 105px;
+        text-align: center;
+        display: none;
+        width: 100%;
+        padding: 0 32px;
+
+        .links--social {
+            position: fixed;
+            bottom: 40px;
+            display: flex;
+            align-items: center;
+            column-gap: 40px;
+        }
     }
 
-    .nav--links.hide {
-        display: none;
+    .nav--links li {
+        box-shadow: 0px 1px 0px 0px rgba(145, 148, 161, .5);
+        width: 100%;
+        text-transform: uppercase;
+        font-size: 20px;
+        letter-spacing: 0.125rem;
+        color: white;
+        padding: 22px 0;
+        cursor: pointer;
+
+        &:first-of-type {
+            box-shadow: 0px 1px 0px 0px rgba(145, 148, 161, .5),
+                0px -1px 0px 0px rgba(145, 148, 161, .5);
+        }
+
+        &:last-of-type {
+            padding: 12px 0;
+            border: 2px solid white;
+            border-radius: 5px;
+            margin-top: 25px;
+        }
+    }
+
+    .nav--links.show {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        animation: fade-in .6s;
+    }
+
+    .nav--backdrop {
+        background: $-c--dark-blue;
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        opacity: .95;
+        animation: dropdown .3s ease-in-out;
+        transform-origin: top;
     }
 }
 
@@ -526,8 +586,102 @@ footer {
 }
 
 @media (min-width: 768px) {
-    .nav--toggle {
-        display: none;
+
+    h2 {
+        line-height: 1.8rem;
+    }
+
+    h2,
+    h3 {
+        font-size: 32px;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    p {
+        font-size: 18px;
+        text-align: center;
+        line-height: 1.5rem;
+    }
+
+    .header--nav {
+        padding: 30px 170px;
+
+        .nav--links {
+            flex-direction: row !important;
+            position: static;
+            width: auto;
+            padding: 0;
+            column-gap: 42px;
+
+            li {
+                color: $-c--dark-blue;
+                box-shadow: none !important;
+                font-size: 13px;
+
+                &:last-of-type {
+                    margin: 0;
+                    background: $-c--soft-red;
+                    color: white;
+                    padding: 14px 30px;
+                    border-radius: 5px;
+                    border: none;
+                    font-size: 12px;
+                }
+            }
+        }
+
+        .nav--toggle {
+            display: none;
+        }
+    }
+
+    header {
+        // padding: 0 170px;
+        display: grid;
+        grid-template-columns: 680px 1fr;
+
+        .header--hero {
+            order: 1;
+
+            .hero--img {
+                width: auto;
+                height: 100%;
+            }
+
+            .hero--backdrop {
+                top: 145px;
+                height: 350px;
+                border-radius: 0 0 0 200px;
+                width: calc(50% + 140px);
+            }
+        }
+
+        .header--intro {
+            padding: 0;
+            margin: 0 0 0 170px;
+
+            .intro--heading {
+                font-size: 48px;
+                text-align: left;
+            }
+
+            .intro--paragraph {
+                text-align: left;
+            }
+
+            .intro--buttons {
+                display: flex;
+
+                button {
+                    padding: 15px 25px;
+                }
+            }
+        }
+    }
+
+    main {
+        padding: 0 170px 125px;
     }
 }
 
@@ -538,5 +692,15 @@ footer {
 
     to {
         transform: scaleY(1);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
     }
 }
