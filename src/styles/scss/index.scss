@@ -230,6 +230,10 @@ main {
             background: transparent;
             color: $-c--dark-blue;
 
+            &:not(.selected) {
+                color: $-c--gray-blue;
+            }
+
             &.selected::after {
                 content: "";
                 display: block;
@@ -313,6 +317,7 @@ main {
 
         .extension--paragraph {
             margin-top: 18px;
+            max-width: 550px;
         }
 
         .extension--browser {
@@ -331,7 +336,7 @@ main {
                 -webkit-box-shadow: 5px 10px 15px 0px rgba(0, 0, 0, 0.10);
                 box-shadow: 5px 10px 15px 0px rgba(0, 0, 0, 0.10);
                 padding: 45px 25px 25px;
-                background: center bottom 95px / contain repeat-x url(../../images/bg-dots.svg);
+                background: center bottom 95px / 300px repeat-x url(../../images/bg-dots.svg);
 
                 h3 {
                     font-size: 20px;
@@ -372,6 +377,7 @@ main {
 
         .faq--paragraph {
             margin-top: 20px;
+            max-width: 550px;
         }
 
         .faq--questions {
@@ -544,7 +550,10 @@ footer {
             flex-direction: column;
             align-items: center;
             row-gap: 30px;
-            margin-top: 35px;
+
+            a {
+                margin-bottom: 35px;
+            }
 
             button {
                 text-transform: uppercase;
@@ -585,7 +594,7 @@ footer {
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1100px) {
 
     h2 {
         line-height: 1.8rem;
@@ -601,11 +610,11 @@ footer {
     p {
         font-size: 18px;
         text-align: center;
-        line-height: 1.5rem;
+        line-height: 1.8rem;
     }
 
     .header--nav {
-        padding: 30px 170px;
+        padding: 40px 170px;
 
         .nav--links {
             flex-direction: row !important;
@@ -629,7 +638,12 @@ footer {
                     font-size: 12px;
                 }
             }
+
+            .links--social {
+                display: none;
+            }
         }
+
 
         .nav--toggle {
             display: none;
@@ -640,9 +654,11 @@ footer {
         // padding: 0 170px;
         display: grid;
         grid-template-columns: 680px 1fr;
+        margin-top: 56px;
 
         .header--hero {
             order: 1;
+            padding: 0;
 
             .hero--img {
                 width: auto;
@@ -658,15 +674,17 @@ footer {
         }
 
         .header--intro {
-            padding: 0;
+            padding: 16px 0 0;
             margin: 0 0 0 170px;
 
             .intro--heading {
                 font-size: 48px;
                 text-align: left;
+                line-height: 3.3rem;
             }
 
             .intro--paragraph {
+                margin-top: 20px;
                 text-align: left;
             }
 
@@ -681,7 +699,220 @@ footer {
     }
 
     main {
-        padding: 0 170px 125px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 0 160px;
+
+        .main--features-heading {
+            margin-top: 125px;
+        }
+
+        .main--features-paragraph {
+            margin-top: 25px;
+            max-width: 550px;
+        }
+
+        .main--features-select {
+            flex-direction: row;
+            border-bottom: 1px solid rgba(145, 148, 161, .3);
+            margin-top: 36px;
+
+            .features-select--button {
+                padding: 28px 44px;
+                border-top: none;
+                border-bottom: 4px solid transparent;
+                transition: border .3s, color .3s;
+
+                &.selected {
+                    border-bottom: 4px solid $-c--soft-red;
+
+                    &::after {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .main--features-body {
+            display: grid;
+            grid-template-columns: 650px 1fr;
+            padding: 0 170px;
+            align-items: flex-start;
+
+            .features-body--illustration {
+                height: auto;
+            }
+
+            #simple-illustration {
+                height: 350px;
+            }
+
+            #speedy-illustration {
+                margin-top: 70px;
+                height: 400px;
+                margin-left: 60px;
+            }
+
+            #easy-illustration {
+                margin-top: 70px;
+                margin-left: 100px;
+                height: 380px;
+            }
+
+            .features-body--backdrop {
+                margin-top: 154px;
+                left: 0;
+                top: 0;
+                border-radius: 0 0 200px 0;
+                width: calc(50% - 60px);
+                height: 350px;
+            }
+
+            .features-body--content {
+                margin-top: 140px;
+
+                h3,
+                p {
+                    text-align: left !important;
+                }
+
+                .content--paragraph {
+                    margin-top: 18px;
+                }
+
+                .content--info {
+                    background-color: $-c--soft-blue;
+                    padding: 14px 28px;
+                    border-radius: 5px;
+                    font-size: 14px;
+                    margin-top: 30px;
+                }
+            }
+        }
+
+        .main--extension {
+            margin-top: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+
+            .extension--paragraph {
+                margin-top: 25px;
+            }
+
+            .extension--browser {
+                flex-direction: row;
+                justify-content: center;
+                column-gap: 35px;
+                width: 100%;
+                margin-top: 60px;
+
+                .browser--card {
+                    padding: 45px 25px 25px;
+                    max-width: 280px;
+
+                    &:nth-of-type(1) {
+                        margin-bottom: 80px;
+                    }
+
+                    &:nth-of-type(2) {
+                        margin: 40px 0;
+                    }
+
+                    &:nth-of-type(3) {
+                        margin-top: 80px;
+                    }
+                }
+            }
+        }
+
+        .main--faq {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 160px;
+            width: 100%;
+            max-width: 600px;
+
+            .faq--paragraph {
+                margin-top: 25px;
+            }
+
+            .faq--questions {
+                margin-top: 50px;
+                border-top: 1px solid rgba(145, 148, 161, .3);
+
+                .questions--dropdown {
+
+                    .dropdown--toggle {
+                        h3 {
+                            font-size: 18px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    footer {
+        .footer--contact {
+            align-items: center;
+            padding: 70px 0 75px;
+
+            h2 {
+                font-size: 30px;
+                max-width: 450px;
+                margin-top: 45px;
+                line-height: 1.25em;
+            }
+
+            .contact--form {
+                flex-direction: row;
+                column-gap: 15px;
+                width: 100%;
+                justify-content: center;
+                margin-top: 35px;
+
+                .form--input-container {
+                    width: 100%;
+                    max-width: 300px;
+                }
+
+                button {
+                    margin-top: 0;
+                    padding: 0 24px;
+                }
+            }
+        }
+
+        .footer--nav {
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 30px 150px;
+
+            .nav--links {
+                flex-direction: row;
+                margin-top: 0;
+                column-gap: 30px;
+
+                a {
+                    margin-bottom: 0;
+                    margin-right: 30px;
+                    display: flex;
+                    align-items: center;
+                }
+
+                button {
+                    font-size: 12px;
+                }
+            }
+
+            .nav--social {
+                margin-top: 0;
+            }
+        }
     }
 }
 

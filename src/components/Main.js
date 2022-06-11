@@ -58,6 +58,7 @@ export default function Main() {
                     <div className="features-body--content">
                         <h3 className="content--heading">Bookmark in one click</h3>
                         <p className="content--paragraph">Organize your bookmarks however you like. Our simple drag-and-drop interface gives you complete control over how you manage your favourite sites.</p>
+                        {window.innerWidth > 768 && <button className="content--info">More Info</button>}
                     </div>
                 </>
 
@@ -74,6 +75,7 @@ export default function Main() {
                     <div className="features-body--content">
                         <h3 className="content--heading">Intelligent search</h3>
                         <p className="content--paragraph">Our powerful search feature will help you find saved sites in no time at all. No need to trawl through all of your bookmarks.</p>
+                        {window.innerWidth > 768 && <button className="content--info">More Info</button>}
                     </div>
                 </>
             )
@@ -89,6 +91,7 @@ export default function Main() {
                     <div className="features-body--content">
                         <h3 className="content--heading">Share your bookmarks</h3>
                         <p className="content--paragraph">Easily share your bookmarks and collections with others. Create a shareable link that you can send at the click of a button.</p>
+                        {window.innerWidth > 768 && <button className="content--info">More Info</button>}
                     </div>
                 </>
             )

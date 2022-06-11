@@ -30,8 +30,8 @@ export default function Footer() {
                 </form>
             </div>
             <div className="footer--nav">
-                <a href="."><BookmarkLogoDark /></a>
                 <nav className="nav--links">
+                    <a href="."><BookmarkLogoDark /></a>
                     <button>Features</button>
                     <button>Pricing</button>
                     <button>Contact</button>
