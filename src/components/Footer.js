@@ -41,10 +41,10 @@ export default function Footer() {
                     <TwitterIcon />
                 </div>
             </div>
-            {/* <div className="footer--credit">
+            <div className="footer--credit">
                 <span>Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noreferrer">Frontend Mentor</a>.</span>
                 <span>Coded by <a href="https://github.com/waldosmuts" target="_blank" rel="author noreferrer">Waldo Smuts</a>.</span>
-            </div> */}
+            </div>
         </footer >
     )
 }
